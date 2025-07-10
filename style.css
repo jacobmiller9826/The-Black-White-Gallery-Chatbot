@@ -1,28 +1,53 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+  --border-color: #000;
+}
+
+body.dark {
+  --bg-color: #000;
+  --text-color: #fff;
+  --border-color: #fff;
+}
+
 body {
   margin: 0;
   font-family: 'Georgia', serif;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 header {
   text-align: center;
   padding: 2rem 1rem;
-  font-size: 1.5rem;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+header button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  padding: 0.3rem 0.6rem;
 }
 
 main {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   max-width: 600px;
   margin: 0 auto;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #chat-log {
@@ -34,6 +59,9 @@ main {
 .message {
   margin: 1rem 0;
   line-height: 1.6;
+  white-space: pre-wrap;
+  border-left: 2px solid var(--border-color);
+  padding-left: 0.5rem;
 }
 
 .user {
@@ -44,12 +72,22 @@ main {
 .bot {
   text-align: left;
   font-style: italic;
+  position: relative;
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
 }
 
 #chat-input {
   display: flex;
   gap: 0.5rem;
-  border-top: 1px solid #000;
+  border-top: 1px solid var(--border-color);
   padding-top: 1rem;
 }
 
@@ -57,20 +95,23 @@ main {
   flex: 1;
   font-family: 'Georgia', serif;
   padding: 0.5rem;
-  border: 1px solid #000;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 button {
   font-family: 'Georgia', serif;
   padding: 0.5rem 1rem;
-  border: 1px solid #000;
-  background: #fff;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  color: var(--text-color);
   cursor: pointer;
 }
 
 footer {
   text-align: center;
   padding: 1rem;
-  border-top: 1px solid #000;
+  border-top: 1px solid var(--border-color);
   font-size: 0.9rem;
 }
